@@ -1,0 +1,21 @@
+default:
+  dbname: "mermaid"
+  host: "localhost"
+  username:  "lheley"
+  password: !expr Sys.getenv("mysql_pw")
+  token_tbl: "token"
+  saves_tbl: "saves"
+  history_tbl: "history"
+  example_tbl: "examples"
+  cookie_expiry: 365
+
+production:
+  dbname: "mdprog"
+  host: "bravo.dasa.r.mil.uk"
+  username: "lheley"
+  password: !expr Sys.getenv("mysql_pw")
+  token_tbl: "token"
+  saves_tbl: "saves"
+  history_tbl: "history"
+  example_tbl: "examples"
+  cookie_expiry: 365

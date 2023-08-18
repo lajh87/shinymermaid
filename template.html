@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- template.html -->
+<html>
+  <head>
+    {{ headContent() }}
+    {{ dependencies }}
+    <style>
+      svg{max-width: 100% !important; height: 78vh;}
+      #examples td {padding-top: 0; padding-bottom: 0;}
+      #history td {padding-top: 0; padding-bottom: 0;}
+      #saves td {padding-top: 0; padding-bottom: 0;}
+    </style>
+  </head
+  <body>
+
+    <!--- Navbar --->
+    <nav class="navbar navbar-expand-lg bg-primary"
+     style = "margin-bottom: 8px">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #ffffff;">
+          <i class="fa-solid fa-diagram-project" style="color: #ffffff;"></i>
+          Mermaid
+        </a>
+      </div>
+    </nav>
+
+    <!--- Start Container Fluid --->
+    <div class="container-fluid">
+      <div class = "row">
+        <div class = "col-sm-5">
+          <div class = "card">
+            <div class = "card-header text-bg-primary">
+
+              <i class="fa-solid fa-code"></i> Code
+
+              <!--- Code Buttons --->
+              <div style = "display: inline-block; float: right">
+                <a href="http://mermaid.js.org/intro/" target = "_blank"
+                 class="btn btn-primary" title = "Docs">
+                  <i class="fa-solid fa-book"></i>
+                </a>
+              </div>
+            </div>
+            <div class = "card-body" style = "padding: 0">
+                 {{ editor }}
+            </div>
+          </div>
+          <br>
+          <div class = "card" style = "height: 33vh">
+            <div class = "card-header">
+              <ul class="nav nav-pills" id="myTab" role="tablist"
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="examples-tab"
+                   data-bs-toggle="tab" data-bs-target="#examples-tab-pane"
+                  type="button" role="tab" aria-controls="examples-tab-pane"
+                  aria-selected="true">
+                    Examples
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="profile-historytab"
+                  data-bs-toggle="tab" data-bs-target="#history-tab-pane"
+                  type="button" role="tab" aria-controls="history-tab-pane"
+                  aria-selected="false">
+                    History
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="saves-tab" data-bs-toggle="tab"
+                  data-bs-target="#saves-tab-pane" type="button" role="tab"
+                  aria-controls="saves-tab-pane" aria-selected="false">
+                    Saves
+                  </button>
+                </li>
+                 <li class = "nav-item" style = "margin-left: auto">
+                     <div style = "display: inline-block; float: right">
+                <button type="button" class="btn btn-default" title = "Save State"
+                onclick='Shiny.setInputValue("save", 1, {priority: "event"})'>
+                  <i class="fa-regular fa-floppy-disk"></i>
+                </button>
+              </div>
+                 </li>
+            </ul>
+
+            </div>
+            <div class = "card-body" style = "overflow-y: scroll;">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="examples-tab-pane"
+                  role = "tabpanel" aria-labelledby = "examples-tab" tabindex="0">
+                  {{ examples }}
+                </div>
+                <div class="tab-pane fade" id="history-tab-pane" role="tabpanel"
+                 aria-labelledby="history-tab" tabindex="0">
+                  {{ history }}
+                </div>
+                <div class="tab-pane fade" id="saves-tab-pane"
+                role="tabpanel" aria-labelledby = "saves-tab" tabindex="0">
+                  {{ saves }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--- Memaid --->
+        <div class = "col-sm-7">
+          <div class = "card" style = "height: 88.5vh">
+            <div class = "card-header text-bg-primary">
+            Diagram
+            <!---Buttons --->
+            <div style = "display: inline-block; float: right">
+                <button type="button" class="btn btn-primary" title = "Full Screen",
+                onclick='Shiny.setInputValue("fullscreen", 1, {priority: "event"})'>
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class = "card-body"> {{ mermaid_diagram }} </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
+
