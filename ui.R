@@ -1,12 +1,13 @@
 htmlTemplate(
   filename = "template.html",
   dependencies = tagList(
-    includeScript("www/bootstrap.bundle.min.js"),
-    includeCSS("www/bootstrap.min.css"),
-    includeScript("www/mermaid.min.js"),
-    cookie_lib = includeScript("www/js.cookie.min.js"),
-    shiny_cookies = includeScript("www/shiny-cookies.js"),
-    fa = fontawesome::fa_html_dependency()
+    tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.min.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"),
+    tags$script(src ="bootstrap.bundle.min.js"),
+    tags$script(src = "mermaid.min.js"),
+    tags$script(src = "js.cookie.min.js"),
+    tags$script(src = "shiny-cookies.js"),
+    tags$script(src = "shiny-mermaid.js")
   ),
   editor = shinyAce::aceEditor(
     outputId = "ace",
